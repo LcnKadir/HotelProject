@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiConsume", "ApiConsume", "{8C190FB8-DDCB-4BB8-A72E-ABF255F022BB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fronted", "Fronted", "{83B8748C-0F6D-4FEE-9F64-02F3B685C79A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{83B8748C-0F6D-4FEE-9F64-02F3B685C79A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{73789E57-9D66-40CA-85E2-33CEE9BC2651}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.BusinessLayer", "ApiConsume\HotelProject.BusinessLayer\HotelProject.BusinessLayer.csproj", "{765E483A-2BA0-4D6D-97C1-8DBA583420A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.DtoLayer", "ApiConsume\HotelProject.DtoLayer\HotelProject.DtoLayer.csproj", "{D6F0FB2B-631A-4A68-999F-8E17D5879264}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.WebUI", "Frontend\HotelProject.WebUI\HotelProject.WebUI.csproj", "{3273DEEB-DBC2-45A2-B864-7FB94B71BB79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D6F0FB2B-631A-4A68-999F-8E17D5879264}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6F0FB2B-631A-4A68-999F-8E17D5879264}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6F0FB2B-631A-4A68-999F-8E17D5879264}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3273DEEB-DBC2-45A2-B864-7FB94B71BB79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3273DEEB-DBC2-45A2-B864-7FB94B71BB79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3273DEEB-DBC2-45A2-B864-7FB94B71BB79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3273DEEB-DBC2-45A2-B864-7FB94B71BB79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{2351D9EF-F315-4BAD-B9F0-CE8B9A2A400A} = {8C190FB8-DDCB-4BB8-A72E-ABF255F022BB}
 		{765E483A-2BA0-4D6D-97C1-8DBA583420A9} = {8C190FB8-DDCB-4BB8-A72E-ABF255F022BB}
 		{D6F0FB2B-631A-4A68-999F-8E17D5879264} = {8C190FB8-DDCB-4BB8-A72E-ABF255F022BB}
+		{3273DEEB-DBC2-45A2-B864-7FB94B71BB79} = {83B8748C-0F6D-4FEE-9F64-02F3B685C79A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C5F7BCD9-CAEE-422B-A231-32B146ADB558}
