@@ -35,6 +35,15 @@ builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
 
+// With "Cors" API is enabled to be consumed by other resources. // // "Cors" ile API'in baþka kaynaklar tarafýndan consume(tüketilmesi) saðlanýldý. // 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("OtelApiCors", opts =>
+    {
+        opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 
 //Database connection path//
 builder.Services.AddDbContext<Context>(x =>
@@ -55,6 +64,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("OtelApiCors");
 app.UseAuthorization();
 
 app.MapControllers();
