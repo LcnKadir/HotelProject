@@ -35,6 +35,10 @@ builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
 
+//AutoMapper
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+
 // With "Cors" API is enabled to be consumed by other resources. // // "Cors" ile API'in baþka kaynaklar tarafýndan consume(tüketilmesi) saðlanýldý. // 
 builder.Services.AddCors(opt =>
 {
