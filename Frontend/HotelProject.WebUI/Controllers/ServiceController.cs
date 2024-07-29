@@ -19,6 +19,7 @@ namespace HotelProject.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var responsemesagge = await client.GetAsync("http://localhost:5219/api/Service");
+          
             if (responsemesagge.IsSuccessStatusCode)
             {
                 var jsonData = await responsemesagge.Content.ReadAsStringAsync();
@@ -58,6 +59,42 @@ namespace HotelProject.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var responsemessage = await client.DeleteAsync($"http://localhost:5219/api/Service/{id}");
+          
+            if (responsemessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateService(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responsemessage = await client.GetAsync($"http://localhost:5219/api/Service/{id}");
+         
+            if (responsemessage.IsSuccessStatusCode)
+            {
+                var jsondata = await responsemessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateServiceDto>(jsondata);
+                return View(values);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateService(UpdateServiceDto dto)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var client = _httpClientFactory.CreateClient();
+            var jsondata = JsonConvert.SerializeObject(dto);
+            StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
+            var responsemessage = await client.PutAsync("http://localhost:5219/api/Service/", stringContent);
+            
             if (responsemessage.IsSuccessStatusCode)
             {
                 return RedirectToAction(nameof(Index));
