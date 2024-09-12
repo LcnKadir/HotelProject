@@ -12,7 +12,7 @@ namespace HotelProject.DataAccessLayer.EntityFramework
 {
     public class EfTestimonialDal : GenericRepository<Testimonial>, ITestimonialDal
     {
-        public EfTestimonialDal(Context context) : base(context)
+        public EfTestimonialDal(AppDbContext context) : base(context)
         {
         }
 

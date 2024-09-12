@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace HotelProject.DataAccessLayer.Concrete
 {
-    public class Context : IdentityDbContext<AppUser, AppRole, int>
+    public class AppDbContext : IdentityDbContext<AppUser, AppRole, int>
     {
-        public Context(DbContextOptions<Context> options) : base(options) 
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             //Database connection path moved to DI Container.//
         }

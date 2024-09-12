@@ -1,4 +1,4 @@
-using HotelProject.BusinessLayer.Abstract;
+ï»¿using HotelProject.BusinessLayer.Abstract;
 using HotelProject.BusinessLayer.Concrete;
 using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.DataAccessLayer.Concrete;
@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen();
 
 
 //Configurations//
-builder.Services.AddDbContext<Context>();
+builder.Services.AddDbContext<AppDbContext>();
 
 builder.Services.AddScoped<IStaffDal, EfStaffDal>();
 builder.Services.AddScoped<IStaffService, StaffManager>();
@@ -39,7 +39,7 @@ builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 
-// With "Cors" API is enabled to be consumed by other resources. // // "Cors" ile API'in baþka kaynaklar tarafýndan consume(tüketilmesi) saðlanýldý. // 
+// With "Cors" API is enabled to be consumed by other resources. // // "Cors" ile API'in baÃ¾ka kaynaklar tarafÃ½ndan consume(tÃ¼ketilmesi) saÄŸlanÄ±ldÄ±. // 
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("OtelApiCors", opts =>
@@ -50,11 +50,11 @@ builder.Services.AddCors(opt =>
 
 
 //Database connection path//
-builder.Services.AddDbContext<Context>(x =>
+builder.Services.AddDbContext<AppDbContext>(x =>
 {
     x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), option =>
     {
-        option.MigrationsAssembly(Assembly.GetAssembly(typeof(Context)).GetName().Name);
+        option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
     });
 });
 
