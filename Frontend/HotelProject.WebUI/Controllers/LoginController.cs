@@ -1,4 +1,5 @@
 ﻿using HotelProject.EntityLayer.Concrete;
+using HotelProject.WebUI.Dtos.LoginDto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,8 +14,26 @@ namespace HotelProject.WebUI.Controllers
             _signInManager = signInManager;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(LoginUserDto dto)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(dto.UserName, dto.Password, false, false);
+                if(result.Succeeded) {
+                    return RedirectToAction("Index", "Staff");
+                    }
+            }
+            else
+            {
+                return View();
+            }
             return View();
         }
     }
