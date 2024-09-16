@@ -5,6 +5,7 @@ using HotelProject.WebUI.Dtos.AboutDto;
 using HotelProject.WebUI.Dtos.LoginDto;
 using HotelProject.WebUI.Dtos.RegisterDto;
 using HotelProject.WebUI.Dtos.RoomDto;
+using HotelProject.WebUI.Dtos.TestimonialDto;
 
 namespace HotelProject.WebUI.Mapping
 {
@@ -23,6 +24,8 @@ namespace HotelProject.WebUI.Mapping
             CreateMap<ResultAboutDto, About>().ReverseMap();
 
             CreateMap<ResultRoomDto, Room>().ReverseMap();
+
+            CreateMap<ResultTestimonialDto, Testimonial>().ReverseMap();
         }
     }
 }
