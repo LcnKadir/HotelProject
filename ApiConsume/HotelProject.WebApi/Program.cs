@@ -37,12 +37,14 @@ builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<IAboutDal, EfAboutDal>();
 builder.Services.AddScoped<IAboutService, AboutManager>();
 
+builder.Services.AddScoped<IBookingDal, EfBookingDal>();
+builder.Services.AddScoped<IBookingService, BookingManager>();
 
 //AutoMapper
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 
-// With "Cors" API is enabled to be consumed by other resources. // // "Cors" ile API'in baþka kaynaklar tarafýndan consume(tüketilmesi) sağlanıldı. // 
+// With "Cors" API is enabled to be consumed by other resources. // // "Cors" ile API'in başka kaynaklar tarafından consume edilmesi(tüketilmesi) sağlanıldı. // 
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("OtelApiCors", opts =>
