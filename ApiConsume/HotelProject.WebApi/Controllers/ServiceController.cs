@@ -23,9 +23,9 @@ namespace HotelProject.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddService(Service Service)
+        public IActionResult AddService(Service service)
         {
-            _serviceService.TInsert(Service);
+            _serviceService.TInsert(service);
             return Ok();
         }
 
@@ -38,9 +38,9 @@ namespace HotelProject.WebApi.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateService(Service Service)
+        public IActionResult UpdateService(Service service)
         {
-            _serviceService.TUpdate( Service);
+            _serviceService.TUpdate(service);
             return Ok();
         }
 
