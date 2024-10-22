@@ -11,7 +11,9 @@ namespace HotelProject.WebApi.Mapping
             CreateMap<RoomAddDto, Room>();
             CreateMap<Room, RoomAddDto>();
 
-            CreateMap<UpdateRoomDto, Room>().ReverseMap(); // //Thanks to "ReverseMap", the problem of writing the operation twice is eliminated and reverse maple also performs it.//"ReverseMap" sayesinde işlemi iki kere yazma sıkıntısı ortadan kalkar ve tersine mapleme de yapar.
+            CreateMap<UpdateRoomDto, Room>().ReverseMap(); 
+            //Thanks to "ReverseMap", the problem of writing the operation twice is eliminated and reverse maple also performs it.
+            //"ReverseMap" sayesinde işlemi iki kere yazma sıkıntısı ortadan kalkar ve tersine mapleme de yapar.
         }
     }
 }

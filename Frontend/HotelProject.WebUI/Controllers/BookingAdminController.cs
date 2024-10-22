@@ -1,7 +1,9 @@
 ﻿using HotelProject.WebApi.Dtos.ServiceDto;
 using HotelProject.WebUI.Dtos.BookingDto;
+using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace HotelProject.WebUI.Controllers
 {
@@ -26,6 +28,16 @@ namespace HotelProject.WebUI.Controllers
                 return View(values);
             }
             return View();
+        }
+
+        public async Task<IActionResult> ApprovedReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsondata = JsonConvert.SerializeObject(id);
+            StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
+            var responsemessage = await client.PutAsync($"http://localhost:5219/api/Booking/StatusChangeApproved/{id}", stringContent);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -11,6 +11,7 @@ namespace HotelProject.DataAccessLayer.Concrete
 {
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, int>
     {
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             //Database connection path moved to DI Container.//

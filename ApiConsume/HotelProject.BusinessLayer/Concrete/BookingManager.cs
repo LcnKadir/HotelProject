@@ -18,6 +18,11 @@ namespace HotelProject.BusinessLayer.Concrete
             _bookingDal = bookingDal;
         }
 
+        public void BookingStatusChangeApprovedForId(int id)
+        {
+            _bookingDal.BookingStatusChangeApprovedForId(id);
+        }
+
         public void TDelete(Booking t)
         {
             _bookingDal.Delete(t);
