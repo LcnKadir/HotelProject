@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RapidApiConsume.Models;
+using System.Reflection;
 
 namespace RapidApiConsume.Controllers
 {
-    public class BookingController : Controller
+    public class SearchLocationController : Controller
     {
         public async Task<IActionResult> Index()
         {
+            //Hotel ids consumed //Otel id'leri consume edildi
+
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
@@ -23,9 +26,9 @@ namespace RapidApiConsume.Controllers
             {
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
-                var model = JsonConvert.DeserializeObject<BookingApiViewModel>(body);
+                var model = JsonConvert.DeserializeObject<BookingApiResponseViewModel>(body);
 
-                return View(model.data.ToList());
+                return View(model.data.Take(1).ToList());
             }
         }
     }

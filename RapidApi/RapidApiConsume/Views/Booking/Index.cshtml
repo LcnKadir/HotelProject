@@ -1,7 +1,9 @@
-﻿@model List<BookingApiViewModel.Product>
+﻿@model List<RapidApiConsume.Models.BookingApiViewModel.Datum>
 
 @{
     Layout = null;
+
+    int count = 0;
 
 }
 
@@ -13,16 +15,22 @@
         <tr>
             <th>#</th>
             <th>Otel Adı</th>
+            <th>Şehir</th>
             <th>Otel Açıklaması</th>
             <th>Fiyat</th>
+            <th>Puan</th>
         </tr>
         @foreach (var item in Model)
         {
+            count++;
+
             <tr>
-                <td>@item.id</td>
-                <td>@item.name</td>
-                <td>@item.shortDescription</td>
-                <td>@item.flags.Rank</td>
+                <td>@count</td>
+                <td>@item.listingName</td>
+                <td>@item.city</td>
+                <td>@item.title</td>
+                <td>@item.originalPrice</td>
+                <td>@item.avgRating</td>
             </tr>
         }
     </table>
