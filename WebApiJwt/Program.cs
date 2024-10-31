@@ -20,9 +20,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     {
         ValidIssuer = "http://localhost",
         ValidAudience = "http://localhost",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("aspnetcoreapiapi")), //Gelen kullanýcý bu key'e sahipse iþlem gerçekleþtirilecek. 
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("aspnetcoreapaiapihotelprojecttoken")), //Gelen kullanýcý bu key'e sahipse iþlem gerçekleþtirilecek. 
         ValidateIssuerSigningKey = true,
-        ValidateLifetime = true
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
     };
 });
 
@@ -35,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
